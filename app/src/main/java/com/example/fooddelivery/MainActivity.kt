@@ -14,9 +14,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.fooddelivery.ui.theme.FoodDeliveryTheme
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
             FoodDeliveryTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
