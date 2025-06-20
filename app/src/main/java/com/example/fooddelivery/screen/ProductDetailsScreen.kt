@@ -12,14 +12,19 @@ import androidx.compose.ui.unit.dp
 import com.example.fooddelivery.data.ProductFlavorData
 import com.example.fooddelivery.data.ProductFlavorState
 import com.example.fooddelivery.data.ProductHighLighState
+import com.example.fooddelivery.data.ProductNutritionData
+import com.example.fooddelivery.data.ProductNutritionState
 import com.example.fooddelivery.data.ProductPreviewState
 import com.example.fooddelivery.screen.components.FlavorSection
+import com.example.fooddelivery.screen.components.ProductNutritionSection
+import com.example.fooddelivery.screen.components.ProductPreviewSection
 
 @Composable
 fun ProductDetailsScreen(
     modifier: Modifier = Modifier,
     productPreviewState: ProductPreviewState = ProductPreviewState(),
-    productFlavors: List<ProductFlavorState> = ProductFlavorData
+    productFlavors: List<ProductFlavorState> = ProductFlavorData,
+    productNutritionState: ProductNutritionState = ProductNutritionData
 
 ) {
     val scrollableState = rememberScrollState()
@@ -27,15 +32,22 @@ fun ProductDetailsScreen(
     Column(
         modifier = modifier.verticalScroll(scrollableState)
     ) {
-        ProductDetailsScreen(
+        ProductPreviewSection(
             state = productPreviewState
         )
         Spacer(
             modifier = Modifier.height(16.dp)
         )
         FlavorSection(
-            modifier = Modifier.padding(18.dp),
+            modifier = Modifier.padding(horizontal = 18.dp),
             data = productFlavors
+        )
+        Spacer(
+            modifier = Modifier.height(16.dp)
+        )
+        ProductNutritionSection(
+            modifier = Modifier.padding(horizontal = 18.dp),
+            state = productNutritionState
         )
     }
 }
