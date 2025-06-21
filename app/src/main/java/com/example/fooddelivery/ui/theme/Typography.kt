@@ -1,7 +1,5 @@
 package com.example.fooddelivery.ui.theme
 
-import android.icu.text.CaseMap.Title
-import androidx.compose.material3.Typography
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
@@ -20,7 +18,7 @@ private val UnboundedFontFamily = FontFamily(
 
 @Immutable
 data class AppTypography(
-    val headLine: TextStyle,
+    val headline: TextStyle,
     val titleLarge: TextStyle,
     val titleMedium: TextStyle,
     val titleSmall: TextStyle,
@@ -30,7 +28,7 @@ data class AppTypography(
 )
 val LocalAppTypography = staticCompositionLocalOf {
     AppTypography(
-        headLine = TextStyle.Default,
+        headline = TextStyle.Default,
         titleLarge = TextStyle.Default,
         titleMedium = TextStyle.Default,
         titleSmall = TextStyle.Default,
@@ -41,7 +39,7 @@ val LocalAppTypography = staticCompositionLocalOf {
 }
 
 val extendedTypography = AppTypography(
-    headLine = TextStyle(
+    headline = TextStyle(
         fontFamily = UnboundedFontFamily,
         fontSize = 32.sp,
         fontWeight = FontWeight.Normal
@@ -75,6 +73,6 @@ val extendedTypography = AppTypography(
         fontFamily = UnboundedFontFamily,
         fontSize = 11.sp,
         fontWeight = FontWeight.Light
-    ),
+    )
 
 )

@@ -36,11 +36,11 @@ fun ProductPreviewSection(
         modifier = modifier.height(IntrinsicSize.Max)
     ) {
         ProductBackground(
-            modifier = Modifier.padding(bottom = 24.dp)
+            Modifier.padding(bottom = 24.dp)
         )
         Content(
             state = state,
-            modifier = Modifier.statusBarsPadding()
+            modifier = Modifier
                 .statusBarsPadding()
                 .padding(top = 24.dp)
         )
@@ -50,55 +50,51 @@ fun ProductPreviewSection(
 @Composable
 private fun ProductBackground(
     modifier: Modifier = Modifier
-){
+) {
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(
                 color = AppTheme.colors.secondarySurface,
-                shape = RoundedCornerShape(
-                    bottomStart = 32.dp,
-                    bottomEnd = 32.dp
-                )
+                shape = RoundedCornerShape(bottomStart = 32.dp, bottomEnd = 32.dp)
             )
-    ){
-
-    }
+    )
 }
 
 @Composable
 private fun Content(
     modifier: Modifier = Modifier,
     state: ProductPreviewState
-){
+) {
     ConstraintLayout(
         modifier = modifier.fillMaxWidth()
     ) {
         val (actionBar, highlights, productImg) = createRefs()
 
         ActionBar(
-                headline = "Mr. Cheezy",
-                modifier = Modifier
-                    .padding(horizontal = 18.dp)
-                    .constrainAs(actionBar) {
+            headline = state.headline,
+            modifier = Modifier
+                .padding(horizontal = 19.dp)
+                .constrainAs(actionBar) {
                     top.linkTo(parent.top)
                 }
-            )
+        )
+
         Image(
-            painter = painterResource(id = R.drawable.img_burger),
-            contentDescription =  null,
+            painter = painterResource(id = state.productImg),
+            contentDescription = null,
             contentScale = ContentScale.FillHeight,
             modifier = Modifier
                 .height(256.dp)
-                .constrainAs(productImg){
+                .constrainAs(productImg) {
                     end.linkTo(parent.end)
                     top.linkTo(anchor = actionBar.bottom, margin = 20.dp)
                 }
         )
 
-        ProductHighlighs(
+        ProductHighlights(
             highlights = state.highlights,
-            modifier = Modifier.constrainAs(highlights){
+            modifier = Modifier.constrainAs(highlights) {
                 start.linkTo(anchor = parent.start, margin = 19.dp)
                 top.linkTo(productImg.top)
             }
@@ -109,16 +105,16 @@ private fun Content(
 @Composable
 private fun ActionBar(
     modifier: Modifier = Modifier,
-    headline : String
-){
+    headline: String
+) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
             text = headline,
-            style = AppTheme.typography.headLine,
+            style = AppTheme.typography.headline,
             color = AppTheme.colors.onSecondarySurface
         )
         CloseButton()
@@ -128,7 +124,7 @@ private fun ActionBar(
 @Composable
 private fun CloseButton(
     modifier: Modifier = Modifier
-){
+) {
     Surface(
         modifier = modifier.size(44.dp),
         shape = RoundedCornerShape(16.dp),
@@ -136,9 +132,9 @@ private fun CloseButton(
         contentColor = AppTheme.colors.secondarySurface
     ) {
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
-        ){
+        ) {
             Icon(
                 painter = painterResource(id = R.drawable.ic_close),
                 contentDescription = null,

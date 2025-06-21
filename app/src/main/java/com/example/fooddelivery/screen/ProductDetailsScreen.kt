@@ -44,10 +44,10 @@ fun ProductDetailsScreen(
         contentAlignment = Alignment.BottomCenter
     ){
         Content(
-            productPreviewState = productPreviewState,
+            productDescription = productDescription,
             productFlavors = productFlavors,
             productNutritionState = productNutritionState,
-            productDescription = productDescription
+            productPreviewState = productPreviewState,
         )
         OrderActionBar(
             state = orderState,
@@ -72,10 +72,10 @@ private fun Content(
     productNutritionState: ProductNutritionState,
     productDescription: String
 ) {
-    val scrollableState = rememberScrollState()
+    val scrollState = rememberScrollState()
 
     Column(
-        modifier = modifier.verticalScroll(scrollableState)
+        modifier = modifier.verticalScroll(scrollState)
     ) {
         ProductPreviewSection(
             state = productPreviewState

@@ -14,14 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.fooddelivery.data.ProductHighLighState
-import com.example.fooddelivery.data.ProductHighLighType
+import com.example.fooddelivery.data.ProductHighlightState
+import com.example.fooddelivery.data.ProductHighlightType
 import com.example.fooddelivery.ui.theme.AppTheme
 
 @Composable
-fun ProductHighlighs(
+fun ProductHighlights(
     modifier: Modifier = Modifier,
-    highlights: List<ProductHighLighState>
+    highlights: List<ProductHighlightState>
 ) {
     Column(
         modifier = modifier,
@@ -56,8 +56,7 @@ private fun Highlight(
         ){
             Text(
                 text = text,
-                style = AppTheme.typography.titleSmall,
-                fontWeight = FontWeight.Bold
+                style = AppTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold)
             )
         }
     }
@@ -70,12 +69,12 @@ private object HighlightDefaults {
     )
 
     @Composable
-    fun colors(type : ProductHighLighType): HighlightColors = when(type){
-        ProductHighLighType.PRIMARY -> HighlightColors(
+    fun colors(type : ProductHighlightType): HighlightColors = when(type){
+        ProductHighlightType.PRIMARY -> HighlightColors(
             containerColor = AppTheme.colors.highlightSurface,
             contentColor = AppTheme.colors.onHighlightSurface
         )
-        ProductHighLighType.SECONDARY -> HighlightColors(
+        ProductHighlightType.SECONDARY -> HighlightColors(
             containerColor = AppTheme.colors.actionSurface,
             contentColor = AppTheme.colors.onActionSurface
         )

@@ -9,5 +9,5 @@ data class OrderState(
 
 val OrderData = OrderState(
     amount = 5,
-    totalPrice = "R$137,25"
+    totalPrice = "$27,45"
 )

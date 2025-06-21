@@ -1,31 +1,30 @@
 package com.example.fooddelivery.data
 
-import android.text.Highlights
 import androidx.annotation.DrawableRes
 import com.example.fooddelivery.R
 
 import org.w3c.dom.Text
 
-data class ProductHighLighState(
+data class ProductHighlightState(
     val text: String,
-    val type: ProductHighLighType
+    val type: ProductHighlightType
 )
 
-enum class ProductHighLighType{
+enum class ProductHighlightType{
     PRIMARY, SECONDARY
 }
 
 data class ProductPreviewState(
     val headLine: String = "Mr. Cheezy",
     @DrawableRes val productImg: Int = R.drawable.img_burger,
-    val highlights: List<ProductHighLighState> = listOf(
-        ProductHighLighState(
+    val highlights: List<ProductHighlightState> = listOf(
+        ProductHighlightState(
             text = "Classic Taste",
-            type = ProductHighLighType.SECONDARY
+            type = ProductHighlightType.SECONDARY
         ),
-        ProductHighLighState(
+        ProductHighlightState(
             text = "Bestseller",
-            type = ProductHighLighType.PRIMARY
+            type = ProductHighlightType.PRIMARY
         )
     )
 )

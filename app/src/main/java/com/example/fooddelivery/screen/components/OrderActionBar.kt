@@ -58,7 +58,7 @@ fun OrderActionBar(
             )
             Cart(
                 totalPrice = state.totalPrice,
-                onClicked = onAddItemClicked,
+                onClicked = onCheckOutClicked,
                 modifier = Modifier.weight(weight = 1f)
             )
         }
