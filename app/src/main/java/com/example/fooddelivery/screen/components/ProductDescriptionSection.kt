@@ -32,8 +32,8 @@ fun ProductDescriptionSection(
             text = productDescription,
             style = AppTheme.typography.body,
             color = AppTheme.colors.onBackground,
-            textAlig = TextAlign.Justify,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Justify
         )
     }
 }
