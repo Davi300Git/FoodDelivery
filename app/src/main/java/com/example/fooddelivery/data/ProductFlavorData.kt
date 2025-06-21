@@ -9,7 +9,7 @@ data class ProductFlavorState(
     @DrawableRes val imgRes: Int
 )
 
-val ProductFlavorData = listOf(
+val ProductFlavorsData = listOf(
     ProductFlavorState(
         imgRes = R.drawable.img_cheese,
         name = "Chedder",

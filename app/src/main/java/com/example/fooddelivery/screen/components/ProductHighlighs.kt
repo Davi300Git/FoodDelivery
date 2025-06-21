@@ -1,6 +1,5 @@
 package com.example.fooddelivery.screen.components
 
-import android.text.Highlights
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

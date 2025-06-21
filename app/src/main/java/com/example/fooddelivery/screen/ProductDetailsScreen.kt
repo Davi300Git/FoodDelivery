@@ -16,8 +16,8 @@ import androidx.compose.ui.unit.dp
 import com.example.fooddelivery.data.OrderData
 import com.example.fooddelivery.data.OrderState
 import com.example.fooddelivery.data.ProductDescriptionData
-import com.example.fooddelivery.data.ProductFlavorData
 import com.example.fooddelivery.data.ProductFlavorState
+import com.example.fooddelivery.data.ProductFlavorsData
 import com.example.fooddelivery.data.ProductNutritionData
 import com.example.fooddelivery.data.ProductNutritionState
 import com.example.fooddelivery.data.ProductPreviewState
@@ -31,18 +31,18 @@ import com.example.fooddelivery.screen.components.ProductPreviewSection
 fun ProductDetailsScreen(
     modifier: Modifier = Modifier,
     productPreviewState: ProductPreviewState = ProductPreviewState(),
-    productFlavors: List<ProductFlavorState> = ProductFlavorData,
+    productFlavors: List<ProductFlavorState> = ProductFlavorsData,
     productNutritionState: ProductNutritionState = ProductNutritionData,
     productDescription: String = ProductDescriptionData,
     orderState: OrderState = OrderData,
-    onAddItemClicked: () -> Unit,
-    onRemoveItemClicked: () -> Unit,
-    onCheckOutClicked: () -> Unit
+    onAddItemClicked: () -> Unit = {},
+    onRemoveItemClicked: () -> Unit = {},
+    onCheckOutClicked: () -> Unit = {}
 ) {
     Box(
         modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.BottomCenter
-    ){
+    ) {
         Content(
             productDescription = productDescription,
             productFlavors = productFlavors,
@@ -84,15 +84,15 @@ private fun Content(
             modifier = Modifier.height(16.dp)
         )
         FlavorSection(
-            modifier = Modifier.padding(horizontal = 18.dp),
-            data = productFlavors
+            data = productFlavors,
+            modifier = Modifier.padding(horizontal = 18.dp)
         )
         Spacer(
             modifier = Modifier.height(16.dp)
         )
         ProductNutritionSection(
-            modifier = Modifier.padding(horizontal = 18.dp),
-            state = productNutritionState
+            state = productNutritionState,
+            modifier = Modifier.padding(horizontal = 18.dp)
         )
         Spacer(
             modifier = Modifier.height(32.dp)
