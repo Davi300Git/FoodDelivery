@@ -8,7 +8,7 @@ O foco foi entender e aplicar os principais conceitos de **design de UI declarat
 
 ## 🚀 Demonstração
 
-<img src="https://github.com/Davi300Git/FoodDelivery/illustrations/demo.gif" alt="Demonstração do App" width="400"/>
+<img src="/illustrations/demo.gif" alt="Demonstração do App" width="400"/>
 
 ---
 
